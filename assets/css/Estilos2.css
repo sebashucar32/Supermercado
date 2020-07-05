@@ -1,0 +1,67 @@
+body {
+    background-color: #e6dcdc;
+}
+
+.navegacion {
+    background-color: #8ed3cc;
+}
+
+/* Letra para el nombre de la persona que aparece en el sidebar */
+.letra-sidebar { 
+    padding: 5px;
+    padding-top: 20px; 
+    font-size: 1.5rem;
+    font-family: cursive, Arial;
+    color: rgb(9, 53, 66);
+}
+
+.letras-sidebar {
+    font-size: 1.4rem;
+}
+
+a {
+    color: black;
+}
+
+.barra-lateral {
+    box-shadow: -5px -1px 5px #a59a9a;
+}
+
+.nav-link {
+    transition: background-color .5s ease-in-out;
+}
+
+.nav-link:hover {
+    background-color:#8ed3cc;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 24px; /* Tamaño de la letra */
+    font-weight: normal;  /* Quita la negrilla del H1 y le deja un negro normal */
+    letter-spacing: 1px;  /* Espacio Entre letras de un pixel */
+    border-bottom: 1px solid #ccc; /* Linea de separacion del h1 al contenido de abajo */
+    margin-bottom: 20px;
+    padding: 20px;
+    padding-top: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: rgb(27, 27, 27);
+}
+
+footer p {
+    color: rgb(252, 251, 249);
+}
+
+footer h3 {
+    color: rgb(252, 251, 249);
+}
+
+/* Cards de productos */
+.info-card {
+    width: 220px;
+    height: 200px;
+    background: #f7f3f3;
+}
