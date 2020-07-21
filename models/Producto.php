@@ -6,6 +6,10 @@ class ModeloProducto
     private $nombre;
     private $idCategoria;
     private $descripcion;
+    private $precio;
+    private $cantidad;
+    private $imagen;
+
     private $conexion;
 
     public function __construct()
@@ -33,6 +37,21 @@ class ModeloProducto
         return $this->descripcion;
     }
 
+    public function getPrecio()
+    {
+        return $this->precio;
+    }
+
+    public function getCantidad()
+    {
+        return $this->cantidad;
+    }
+
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
     public function setId($id): void
     {
         $this->id = $id;
@@ -53,6 +72,21 @@ class ModeloProducto
         $this->descripcion = $descripcion;
     }
 
+    public function setPrecio($precio): void 
+    {
+        $this->precio = $precio;
+    }
+
+    public function setCantidad($cantidad): void
+    {
+        $this->cantidad = $cantidad;
+    }
+
+    public function setImagen($imagen): void
+    {
+        $this->imagen = $imagen;
+    }
+
     public function productosAleatorios($limite)
     {
         $productos = $this->conexion->query("SELECT * FROM productos ORDER BY RAND() LIMIT $limite");
@@ -68,4 +102,72 @@ class ModeloProducto
 
         return $productos;
     }
+
+    //FUNCIONES DEL CRUD
+    public function mostrarProductos()
+    {
+        $sql = "SELECT * FROM productos";
+        $productos = $this->conexion->query($sql);
+
+        return $productos;
+    }
+
+    public function crearProductos()
+    {
+        $sql = "INSERT INTO productos(nombre, id_categoria, descripcion, precio, cantidad, imagen) VALUES('{$this->getNombre()}', {$this->getIdCategoria()}, '{$this->getDescripcion()}', {$this->getPrecio()}, {$this->getCantidad()}, '{$this->getImagen()}');";
+        $guardar = $this->conexion->query($sql);
+
+        $resultado = false;
+        if($guardar) 
+        {
+            $resultado = true; 
+        } 
+        
+        return $resultado;
+    }
+
+    public function obtenerProductoUnico()
+    {
+        $sql = "SELECT * FROM productos WHERE id = {$this->getId()} ";
+        $producto = $this->conexion->query($sql);
+        return $producto->fetch_object();
+    }
+
+    public function editarProducto()
+    {
+        $sql = "UPDATE productos SET nombre='{$this->getNombre()}', id_categoria={$this->getIdCategoria()}, Precio={$this->getPrecio()}, descripcion='{$this->getDescripcion()}', cantidad={$this->getCantidad()}";
+
+        if($this->getImagen() != null)
+        {
+            $sql .= ", imagen='{$this->getImagen()}'"; 
+        }
+
+        $sql .= " WHERE id={$this->id};";
+
+        $save = $this->conexion->query($sql);
+
+        $resultado = false;
+        if($save)
+        {
+            $resultado = true;
+        }
+
+        return $resultado;
+    }
+
+    public function eliminarProducto()
+    {
+        $sql = "DELETE FROM productos WHERE id = {$this->getId()};";
+        $eliminar = $this->conexion->query($sql);
+
+        $resultado = false;
+
+        if($eliminar)
+        {
+			$result = true;
+        }
+        
+		return $resultado;
+    }
 }
+

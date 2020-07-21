@@ -7,7 +7,7 @@
                 <img src="<?=urlBase?>/assets/img/cards/<?=$producto->imagen?>" />
                 <div class="info-card">
                     <h5><?=$producto->nombre?></h5>
-                    <p><?=$producto->id_categoria?></p>
+                    <p><?=$producto->Precio?>$</p>
                     <p><?=$producto->descripcion?></p>
                     <a href="#" class="btn btn-primary" data-id="1">Agregar Al Carrito</a>
                 </div>

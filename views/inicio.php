@@ -121,7 +121,7 @@
                         <h5 class="letra-sidebar mt-4 text-uppercase"><?= $_SESSION['usuario']->nombre ?> <?= $_SESSION['usuario']->apellidos ?></h5>
                         <?php if(isset($_SESSION['admin'])): ?>
                             <a href="#" class="letras-sidebar"><i class="icon ion-md-folder"></i>  Gestionar categorias</a><br/>
-                            <a href="#" class="letras-sidebar"><i class="icon ion-md-beer"></i>  Gestionar productos</a><br/>
+                            <a href="<?=urlBase?>/producto/mostrar" class="letras-sidebar"><i class="icon ion-md-beer"></i>  Gestionar productos</a><br/>
                             <a href="#" class="letras-sidebar"><i class="icon ion-md-chatbubbles"></i>  Gestionar pedidos</a><br/>
                         <?php endif; ?>
 
@@ -142,7 +142,7 @@
                                     <img src="<?=urlBase?>/assets/img/cards/<?=$producto->imagen?>" />
                                     <div class="info-card">
                                         <h5><?=$producto->nombre?></h5>
-                                        <p><?=$producto->id_categoria?></p>
+                                        <p><?=$producto->Precio?>$</p>
                                         <p><?=$producto->descripcion?></p>
                                         <a href="#" class="btn btn-primary" data-id="1">Agregar Al Carrito</a>
                                     </div>
